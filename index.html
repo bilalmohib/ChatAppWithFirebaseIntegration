@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Time Chat App Using Google Auth</title>
+</head>
+<body>
+<h1>Welcome to your chat room <img src="" id="clientPhoto" alt=""> <span id="clientName"></span> <span id="clientEmail"></span></h1>   
+
+<div style="color: rgb(7, 30, 73); border:3px solid black;">
+<h1>Add User</h1>
+<input type="email" required id="addUser">
+<button onclick="addUser()">Add to Contacts</button>
+
+</div>
+
+<button onclick="logout()">SignOut</button><br>
+ 
+
+
+<div style="width: 100%; color: blue; border: 4px solid green; border-radius: 10px;">
+<h1>Your Contacts</h1>
+<ol style="font-size: 30px;" id="list">
+  
+</ol>
+</div>
+
+
+
+<div style="border: 5px solid blue;border-radius: 5px; background-color: aliceblue;">
+
+  <ol style="font-size: 30px; color: rgb(5, 92, 92);" id="list1">
+  
+  </ol>
+
+
+  <ol style="margin-left: 100px; border: 1px solid black; width: fit-content; font-size: 30px; color: rgb(5, 92, 92);" id="list2">
+  
+  </ol>
+
+  <h1>Send Message to <span style="color: brown;" id="SendUser"></span></h1>
+<br>
+<hr>
+
+<input type="text" id="comments" placeholder="Enter your message here">
+
+
+
+<br>
+<input type="button" value="SendMessage" required onclick="send()">
+
+</div>
+ 
+   <!-- The core Firebase JS SDK is always required and must be listed first -->
+   <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+
+   <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-database.js"></script>
+
+   <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+
+  
+   
+   <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+   <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script>
+   
+   <script>
+     // Your web app's Firebase configuration
+     var firebaseConfig = {
+       apiKey: "AIzaSyCOwkGsRoFR8EkxqwSLRX8FrWVf5WjVAAY",
+       authDomain: "realtime-chat-app-c7b37.firebaseapp.com",
+       databaseURL: "https://realtime-chat-app-c7b37.firebaseio.com",
+       projectId: "realtime-chat-app-c7b37",
+       storageBucket: "realtime-chat-app-c7b37.appspot.com",
+       messagingSenderId: "117780632536",
+       appId: "1:117780632536:web:b0cb04b87ae4ac72d298ad",
+       measurementId: "G-9PMSJ8HWYH"
+     };
+     // Initialize Firebase
+     firebase.initializeApp(firebaseConfig);
+     firebase.analytics();
+   </script>
+
+</body>
+<script src="app.js"></script>
+</html>
