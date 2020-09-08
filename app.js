@@ -257,7 +257,7 @@ let addUser = () => {
     }
 
     firebase.database().ref(`Users/${res}/${res1}`).push(Users);
-
+    location.reload();
 }
 
 
@@ -467,7 +467,7 @@ let send = () => {
 
 
     alert("Thanks for your valuable feedback");
-    
+    location.reload();
 }
 
 
