@@ -1,5 +1,7 @@
 
 
+alert("Select your contact on the left to see your messages.Note dont worry of @ and . because firebase dosent accept them thats why I have removed them.Your messages will be properly sent to particular users you choose please type correct email including @ and everything which it have");
+
 var UserEmail;
 var UserDisplayName;
 var UserPhotoURL;
@@ -113,10 +115,10 @@ let sendID = (e) => {
             li.appendChild(img);
 
             let para = document.createElement("p");
-            para.innerHTML = `The User Name is ${name}</br>
-        The User Email is ${email}</br>
-        The "User Comments is ${comment}</br>
-        The date sent comment sent is ${date}</br>`;
+            para.innerHTML = `<b>Name</b>: ${name}</br>
+            <b>Email</b>: ${email}</br>
+            <b>Comments</b>: ${comment}</br>
+            <b>Time:</b> ${date}</br>`;
             para.setAttribute("id", "UserComments")
             li.appendChild(para);
             list1.appendChild(li)
@@ -155,10 +157,10 @@ firebase.database().ref(`Comment/${res}/${res12}`).once('value', (data) => {
         li.appendChild(img);
 
         let para = document.createElement("p");
-        para.innerHTML = `The User Name is ${name}</br>
-    The User Email is ${email}</br>
-    The "User Comments is ${comment}</br>
-    The date sent comment sent is ${date}</br>`;
+        para.innerHTML = `<b>Name</b>: ${name}</br>
+    <b>Email</b>: ${email}</br>
+    <b>Comments</b>: ${comment}</br>
+    <b>Time:</b> ${date}</br>`;
         para.setAttribute("id", "UserComments")
         li.appendChild(para);
         list2.appendChild(li)
@@ -371,6 +373,11 @@ let send = () => {
         return;
     }
 
+    if(SendEmail==null)
+    {
+        alert("Select the user from the left sidebar named select contacts to chat with them")
+    }
+
     let str = SendEmail;
     let res = str.split("@").join("");
     res = res.split(".").join("");
@@ -485,13 +492,6 @@ let send = () => {
 
 
 ////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
 
 
 

@@ -4,59 +4,133 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <!-- add icon link -->
+       <!-- add icon link -->
        <link rel = "icon" href =  
        "https://icon-library.com/images/chat-app-icon/chat-app-icon-7.jpg" 
                type = "image/x-icon"> 
     <title>Real Time Chat App Using Google Auth</title>
+     <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/simple-sidebar.css" rel="stylesheet">
 </head>
 <body>
-<h1>Welcome to your chat room <img src="" id="clientPhoto" alt=""> <span id="clientName"></span> <span id="clientEmail"></span></h1>   
 
-<div style="color: rgb(7, 30, 73); border:3px solid black;">
-<h1>Add User</h1>
-<input type="email" required id="addUser">
-<button onclick="addUser()">Add to Contacts</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--//////////////////////////Here is the  start bootstrap///////////////////////////////////-->
+
+
+
+<div class="d-flex" id="wrapper">
+
+  <!-- Sidebar -->
+  <div class="bg-light border-right" id="sidebar-wrapper">
+    <div id="contacts" style="   font-size: 25px;
+    color: blue;" class="sidebar-heading">Your contacts</div>
+    <div class="list-group list-group-flush">
+      <ol style="font-size: 15px;" id="list">
+  
+      </ol>
+      
+    </div>
+  </div>
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+      <button class="btn btn-primary" id="menu-toggle">Select Contacts</button>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div style=" color:rgb(58, 16, 97); font-size: 15px; background-color: cornflowerblue; border: 1px solid green;border-radius: 15px;">Welcome to your chat room <img src="" id="clientPhoto" alt=""> <span style="font-weight: bolder;" id="clientName"></span> <span id="clientEmail"></span></div>
+
+
+      <div style="color: rgb(7, 30, 73); border:3px solid black;">
+      <h1>Add User</h1><span>Note:(the users you add will appear in the left sidebar select the one to start chat</span><br>
+      <input type="email" required id="addUser">
+      <button onclick="addUser()">Add to Contacts</button>
+      
+      </div>
+      
+      <button onclick="logout()">SignOut</button><br>
+      
+      
+      
+      <div style="border: 5px solid blue;border-radius: 5px; background-color: aliceblue;">
+      
+        <ol  style="background-color: rgb(77, 130, 177); color: black; font-size: 20px;width: 100%;" id="list1">
+        
+        </ol>
+      
+      
+        <h3>Send Message to <span style="color: rgb(38, 11, 110);" id="SendUser"></span></h3>
+        <ol style="background-color:rgb(27, 8, 56); border: 1px solid black; width: 100%; font-size: 20px; color: rgb(255, 255, 255);" id="list2">
+        
+        </ol>
+       
+      <br>
+      <hr>
+      
+      <input type="text" style="width: 100%; font-size: 25px; " id="comments" placeholder="Enter your message here">
+      
+      
+      
+      <br>
+      <input type="button" style="font-size: 25px; background-color:rgb(37, 28, 122); color: aliceblue; border-radius: 10px;" value="SendMessage" required onclick="send()">
+      
+      </div>
+       
+  </div>
+  <!-- /#page-content-wrapper -->
 
 </div>
-
-<button onclick="logout()">SignOut</button><br>
- 
-
-
-<div style="width: 100%; color: blue; border: 4px solid green; border-radius: 10px;">
-<h1>Your Contacts</h1>
-<ol style="font-size: 30px;" id="list">
-  
-</ol>
-</div>
+<!-- /#wrapper -->
 
 
 
-<div style="border: 5px solid blue;border-radius: 5px; background-color: aliceblue;">
-
-  <ol style="font-size: 30px;background-color:orange;  color: purple;" id="list1">
-  
-  </ol>
-
-
-  <ol style="background-color:black; margin-left: 100px; border: 1px solid black; width: fit-content; font-size: 30px; color: white;" id="list2">
-  
-  </ol>
-
-  <h1>Send Message to <span style="color: brown;" id="SendUser"></span></h1>
-<br>
-<hr>
-
-<input type="text" id="comments" placeholder="Enter your message here">
+<!--//////////////////////////Here is the  start bootstrap///////////////////////////////////-->
 
 
 
-<br>
-<input type="button" value="SendMessage" required onclick="send()">
-
-</div>
- 
    <!-- The core Firebase JS SDK is always required and must be listed first -->
    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
 
@@ -87,6 +161,25 @@
      firebase.analytics();
    </script>
 
+
+
+
+
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
 </body>
+
 <script src="app.js"></script>
 </html>

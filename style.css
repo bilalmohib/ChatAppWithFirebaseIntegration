@@ -16,3 +16,8 @@ button,input
     height: 50px;
     border-radius: 50%;
 }
+#contacts
+{
+    font-size: 25px;
+    color: blue;
+}
