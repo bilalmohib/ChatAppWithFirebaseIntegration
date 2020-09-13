@@ -44,13 +44,13 @@ button, input {
     font-weight: bold;
     font-size: 16px;
     background-color: transparent;
-    color: rgb(2, 32, 4);
+    color: rgb(0, 0, 0);
 }
 
 .messagebox {
     background-color: rgb(7, 36, 37);
     color: aliceblue;
-    font-size: 25px;
+    font-size: 18px;
     width: fit-content;
     border-radius: 10px;
 }
@@ -58,7 +58,7 @@ button, input {
 .messagebox1 {
     background-color: rgb(47, 169, 173);
     color: aliceblue;
-    font-size: 25px;
+    font-size: 18px;
     width: fit-content;
     border-radius: 10px;
 }
@@ -66,25 +66,27 @@ button, input {
 .Time {
     font-size: 14px;
     margin-left: 10px;
-    color: black;
+    color: rgb(0, 0, 0);
 }
 
 .MajorBox {
-    background-color: rgb(161, 190, 218);
+    background-color: grey;
     border-radius: 5px;
     width: fit-content;
     margin-bottom: 10px;
+    
 }
 
 .MajorBox1 {
-    background-color: rgb(161, 247, 144);
+    background-color: white;
     border-radius: 5px;
     width: fit-content;
     margin-bottom: 10px;
-}
+    position: relative;   
+  }
 
 .delBtn {
-    font-size: 25px;
+    font-size: 15px;
     margin-left: 10px;
     border-radius: 5px;
     background-color: white;
@@ -102,11 +104,19 @@ button, input {
 }
 
 #UpperDiv {
-    background: linear-gradient(#d7f0cd 0%, #c1dae7 10%, #b3b9eb 50%, #cfe6d9 100%);
+    /* background: linear-gradient(#d7f0cd 0%, #c1dae7 10%, #b3b9eb 50%, #cfe6d9 100%); */
     border-radius: 5px;
-    min-height: 50px;
+    font-size: 30px;
+    text-shadow: 2px 2px 2px white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 5px 5px 5px 5px grey;
 }
-
+@media all and (max-width:600px)
+{
+    #UpperDiv {
+        font-size: 20px;
+    }
+}
 #back {
     display: none;
 }
