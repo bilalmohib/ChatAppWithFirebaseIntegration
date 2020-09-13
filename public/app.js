@@ -32,7 +32,7 @@ let sendID = (e) => {
     SendEmail = e.innerHTML;
 
     localStorage.setItem("SelectedUser", SendEmail);
-    let SelectedUser = localStorage.getItem("SelectedUser");
+
 
 
 
@@ -727,107 +727,123 @@ let send = () => {
         return;
     }
 
-    if (SendEmail == null) {
-        alert("Select the user from the left sidebar named select contacts to chat with them")
-    }
 
-    let str = SendEmail;
-    let res = str.split("@").join("");
-    res = res.split(".").join("");
-    res = res.split("`").join("");
-    res = res.split("!").join("");
-    res = res.split(".").join("");
-    res = res.split("#").join("");
-    res = res.split("%").join("");
-    res = res.split("^").join("");
-    res = res.split("&").join("");
-    res = res.split("*").join("");
-    res = res.split("(").join("");
-    res = res.split(")").join("");
-    res = res.split('"').join("");
-    res = res.split("'").join("");
-    res = res.split("_").join("");
-    res = res.split("-").join("");
-    res = res.split("+").join("");
-    res = res.split("=").join("");
-    res = res.split("}").join("");
-    res = res.split("{").join("");
-    res = res.split("]").join("");
-    res = res.split("[").join("");
-    res = res.split("|").join("");
-    res = res.split("/").join("");
-    res = res.split("?").join("");
-    res = res.split(";").join("");
-    res = res.split(",").join("");
+    /////////////////////////////////////////////////////////
+    firebase.database().ref(`CurrentUser/${res12}`).on('value', (snapshot) => {
+        snapshot.forEach(function (data) {
+            var current_user = data.val();
+            console.log(current_user)
+            // ...
+            document.getElementById("SendUser").innerHTML = current_user;
 
 
+            if (current_user == null) {
+                alert("Select the user from the left sidebar named select contacts to chat with them")
+            }
+        
+        
+            let str=current_user;
+            let res = str.split("@").join("");
+            res = res.split(".").join("");
+            res = res.split("`").join("");
+            res = res.split("!").join("");
+            res = res.split(".").join("");
+            res = res.split("#").join("");
+            res = res.split("%").join("");
+            res = res.split("^").join("");
+            res = res.split("&").join("");
+            res = res.split("*").join("");
+            res = res.split("(").join("");
+            res = res.split(")").join("");
+            res = res.split('"').join("");
+            res = res.split("'").join("");
+            res = res.split("_").join("");
+            res = res.split("-").join("");
+            res = res.split("+").join("");
+            res = res.split("=").join("");
+            res = res.split("}").join("");
+            res = res.split("{").join("");
+            res = res.split("]").join("");
+            res = res.split("[").join("");
+            res = res.split("|").join("");
+            res = res.split("/").join("");
+            res = res.split("?").join("");
+            res = res.split(";").join("");
+            res = res.split(",").join("");
+        
+        
+        
+        
+            let str1 = UserEmail;
+            let res1 = str1.split("@").join("");
+            res1 = res1.split(".").join("");
+            res1 = res1.split("`").join("");
+            res1 = res1.split("!").join("");
+            res1 = res1.split(".").join("");
+            res1 = res1.split("#").join("");
+            res1 = res1.split("%").join("");
+            res1 = res1.split("^").join("");
+            res1 = res1.split("&").join("");
+            res1 = res1.split("*").join("");
+            res1 = res1.split("(").join("");
+            res1 = res1.split(")").join("");
+            res1 = res1.split('"').join("");
+            res1 = res1.split("'").join("");
+            res1 = res1.split("_").join("");
+            res1 = res1.split("-").join("");
+            res1 = res1.split("+").join("");
+            res1 = res1.split("=").join("");
+            res1 = res1.split("}").join("");
+            res1 = res1.split("{").join("");
+            res1 = res1.split("]").join("");
+            res1 = res1.split("[").join("");
+            res1 = res1.split("|").join("");
+            res1 = res1.split("/").join("");
+            res1 = res1.split("?").join("");
+            res1 = res1.split(";").join("");
+            res1 = res1.split(",").join("");
+        
+            // let Users = {
+            //     Name: UserDisplayName,
+            //     Email: UserEmail,
+            //     UserPhoto: UserPhotoURL,
+            //     Comment: comment,
+            //     Time: dateTime
+            // }
+        
+            // firebase.database().ref(`Users/${res1}`).push(Users);
+        
+        
+            let Comment = {
+                Name: UserDisplayName,
+                Email: UserEmail,
+                UserPhoto: UserPhotoURL,
+                Comment: comment,
+                Time: dateTime
+            }
+        
+            firebase.database().ref(`Comment/${res1}/${res}/`).push(Comment);
+        
+        
+            //Saving the user in the alert for particular user i.e next person 
+            let Users = {
+                Name: UserDisplayName,
+                Email: UserEmail,
+                UserPhoto: UserPhotoURL,
+                Time: dateTime
+            }
+        
+            firebase.database().ref(`Users/${res}/${res1}`).push(Users);
+            //Saving the user in the alert for particular user i.e next person 
+        
+        
+            alert("Message Sent");
+            location.reload();
 
 
-    let str1 = UserEmail;
-    let res1 = str1.split("@").join("");
-    res1 = res1.split(".").join("");
-    res1 = res1.split("`").join("");
-    res1 = res1.split("!").join("");
-    res1 = res1.split(".").join("");
-    res1 = res1.split("#").join("");
-    res1 = res1.split("%").join("");
-    res1 = res1.split("^").join("");
-    res1 = res1.split("&").join("");
-    res1 = res1.split("*").join("");
-    res1 = res1.split("(").join("");
-    res1 = res1.split(")").join("");
-    res1 = res1.split('"').join("");
-    res1 = res1.split("'").join("");
-    res1 = res1.split("_").join("");
-    res1 = res1.split("-").join("");
-    res1 = res1.split("+").join("");
-    res1 = res1.split("=").join("");
-    res1 = res1.split("}").join("");
-    res1 = res1.split("{").join("");
-    res1 = res1.split("]").join("");
-    res1 = res1.split("[").join("");
-    res1 = res1.split("|").join("");
-    res1 = res1.split("/").join("");
-    res1 = res1.split("?").join("");
-    res1 = res1.split(";").join("");
-    res1 = res1.split(",").join("");
+        })
 
-    // let Users = {
-    //     Name: UserDisplayName,
-    //     Email: UserEmail,
-    //     UserPhoto: UserPhotoURL,
-    //     Comment: comment,
-    //     Time: dateTime
-    // }
-
-    // firebase.database().ref(`Users/${res1}`).push(Users);
-
-
-    let Comment = {
-        Name: UserDisplayName,
-        Email: UserEmail,
-        UserPhoto: UserPhotoURL,
-        Comment: comment,
-        Time: dateTime
-    }
-
-    firebase.database().ref(`Comment/${res1}/${res}/`).push(Comment);
-
-
-    //Saving the user in the alert for particular user i.e next person 
-    let Users = {
-        Name: UserDisplayName,
-        Email: UserEmail,
-        UserPhoto: UserPhotoURL,
-        Time: dateTime
-    }
-
-    firebase.database().ref(`Users/${res}/${res1}`).push(Users);
-    //Saving the user in the alert for particular user i.e next person 
-
-
-    alert("Message Sent");
-    location.reload();
+    })
 }
 
 
@@ -849,4 +865,5 @@ let closeIt = () => {
 
 
 ////////////////////////////////////////////////////////////////////////////////////
+
 
