@@ -1,0 +1,116 @@
+#clientPhoto {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+}
+
+button, input {
+    font-size: 30px;
+}
+
+.dabas {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+}
+
+#contacts {
+    font-size: 25px;
+    color: blue;
+}
+
+#user {
+    margin: 5px;
+    background-color: rgb(20, 37, 112);
+    color: white;
+    margin-left: -15px;
+    border-radius: 5px;
+}
+
+#user:hover {
+    margin-left: 10px;
+    background-color: rgb(215, 217, 223);
+    color: rgb(14, 16, 110);
+    border-radius: 5px;
+    transition: 0.3s linear;
+}
+
+.UserComments {
+    font-size: 20px;
+}
+
+.Name {
+    margin-left: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: transparent;
+    color: rgb(2, 32, 4);
+}
+
+.messagebox {
+    background-color: rgb(7, 36, 37);
+    color: aliceblue;
+    font-size: 25px;
+    width: fit-content;
+    border-radius: 10px;
+}
+
+.messagebox1 {
+    background-color: rgb(47, 169, 173);
+    color: aliceblue;
+    font-size: 25px;
+    width: fit-content;
+    border-radius: 10px;
+}
+
+.Time {
+    font-size: 14px;
+    margin-left: 10px;
+    color: black;
+}
+
+.MajorBox {
+    background-color: rgb(161, 190, 218);
+    border-radius: 5px;
+    width: fit-content;
+    margin-bottom: 10px;
+}
+
+.MajorBox1 {
+    background-color: rgb(161, 247, 144);
+    border-radius: 5px;
+    width: fit-content;
+    margin-bottom: 10px;
+}
+
+.delBtn {
+    font-size: 25px;
+    margin-left: 10px;
+    border-radius: 5px;
+    background-color: white;
+    color: rgb(250, 36, 36);
+}
+
+.delBtn:hover {
+    background-color: rgb(12, 114, 34);
+    color: rgb(255, 255, 255);
+    transition: 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+.Key {
+    display: none;
+}
+
+#UpperDiv {
+    background: linear-gradient(#d7f0cd 0%, #c1dae7 10%, #b3b9eb 50%, #cfe6d9 100%);
+    border-radius: 5px;
+    min-height: 50px;
+}
+
+#back {
+    display: none;
+}
+#anchor
+{
+    margin-top: -10px;
+}

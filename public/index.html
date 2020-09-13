@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- add icon link -->
+  <link rel="icon" href="https://icon-library.com/images/chat-app-icon/chat-app-icon-7.jpg" type="image/x-icon">
+  <title>Real Time Chat App Using Google Auth</title>
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+  <!-- Custom styles for this template -->
+  <link href="css/simple-sidebar.css" rel="stylesheet">
+  <style>
+    body {
+      background: url('https://i.gifer.com/7RN4.gif') no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+
+    #commentDiv {
+      background: url('https://i.pinimg.com/originals/8f/ba/cb/8fbacbd464e996966eb9d4a6b7a9c21e.jpg') no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+
+    #comments {
+      font-size: 30px;
+      min-width: 270px;
+
+    }
+
+    #comments:focus {
+      background: linear-gradient(#e6e0e0 0%, #6d9cb8 10%, #b0dbcd 50%, hsl(249, 27%, 85%) 100%);
+      transition: 0.4s linear;
+    }
+
+    #contacts {
+      background: linear-gradient(#90afd8 0%, #99b1be 10%, #667aee 50%, #9f90f8 100%);
+      font-family: 'Kumbh Sans', sans-serif;
+      text-shadow: 2px 2px 2px #1f37be;
+      font-weight: bolder;
+      font-size: 25px;
+    }
+  </style>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+
+
+
+
+
+
+  <!--//////////////////////////Here is the  start bootstrap///////////////////////////////////-->
+
+
+
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="badge-light border-right bg-dark" style="position: relative; z-index: 100;" id="sidebar-wrapper">
+      <div id="contacts" class="sidebar-heading text-white">Your contacts
+        <button type="button" class="btn btn-outline-primary bg-light" onclick="showIt()">Add</button>
+      </div>
+
+      <div class="list-group list-group-flush">
+        <ol style="font-size: 15px; color: white; width: fit-content;" id="list">
+
+        </ol>
+
+      </div>
+    </div>
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-light border-bottom">
+        <button style="margin-left: -20px;" class="btn btn-dark" id="menu-toggle">Select Contacts</button>
+
+
+        <div class="container-fluid" id="UpperDiv" style="color:rgb(53, 5, 85);font-size: 18px;">
+          <img src="" id="clientPhoto" alt=""> <span style="font-weight: bolder;" id="clientName"></span> <span
+            id="clientEmail"></span>
+
+      </nav>
+
+
+      <div id="commentDiv" style="border-radius: 5px; border:1px solid #1f37be; background-color: aliceblue;">
+        <button id="back" class="btn-lg btn-warning" onclick="back()">Back</button>
+        <ol id="list1">
+
+        </ol>
+
+
+        <h3>Send Message to <span style="color: rgb(38, 11, 110);" id="SendUser"></span></h3>
+        <ol id="list2">
+
+        </ol>
+
+        <br>
+        <hr>
+
+        <input type="text" style="width: 90%; font-size: 25px; " id="comments" placeholder="Enter your message here">
+
+
+
+        <br>
+        <br>
+        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="send()">Send Message</button>
+
+
+      </div>
+      <button style="margin-top: 15px; margin-left: 10px;" class="btn btn-danger btn-lg"
+        onclick="logout()">LogOut</button>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+
+
+  <!--//////////////////////////Here is the  start bootstrap///////////////////////////////////-->
+
+
+
+  <div id="Add" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-title">
+            <h3>Add Friends</h3><span>Note:(the users you add will appear in the left sidebar select the one to start
+              chat</span>
+          </div>
+          <button type="button" class="close" data-dismiss="modal" onclick="closeIt()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div style="color: rgb(7, 30, 73); border:3px solid black;">
+
+            <h4>Email Address</h4>
+            <input class="bg-light" style="font-size: 20px;width: 80%;" type="email"
+              placeholder="Enter the email to add user" required id="addUser">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeIt()">Close</button>
+          <button type="button" class="btn btn-primary" onclick="addUser()">Add to Contacts</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-database.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyCOwkGsRoFR8EkxqwSLRX8FrWVf5WjVAAY",
+      authDomain: "realtime-chat-app-c7b37.firebaseapp.com",
+      databaseURL: "https://realtime-chat-app-c7b37.firebaseio.com",
+      projectId: "realtime-chat-app-c7b37",
+      storageBucket: "realtime-chat-app-c7b37.appspot.com",
+      messagingSenderId: "117780632536",
+      appId: "1:117780632536:web:b0cb04b87ae4ac72d298ad",
+      measurementId: "G-9PMSJ8HWYH"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+
+
+
+
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function (e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+</body>
+
+<script src="app.js"></script>
+
+</html>
