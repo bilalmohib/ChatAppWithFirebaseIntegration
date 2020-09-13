@@ -69,13 +69,13 @@
   <div class="d-flex" id="wrapper">
 
     <!-- Sidebar -->
-    <div class="badge-light border-right bg-dark" style="position: relative; z-index: 100;" id="sidebar-wrapper">
+    <div class="badge-light border-right bg-light" style="position: relative; z-index: 100;" id="sidebar-wrapper">
       <div id="contacts" class="sidebar-heading text-white">Your contacts
         <button type="button" class="btn btn-outline-primary bg-light" onclick="showIt()">Add</button>
       </div>
 
       <div class="list-group list-group-flush">
-        <ol style="font-size: 15px; color: white; width: fit-content;" id="list">
+        <ol style="font-size: 15px; color: rgb(0, 0, 0); width: fit-content;" id="list">
 
         </ol>
 
@@ -88,10 +88,10 @@
         <button style="margin-left: -20px;" class="btn btn-dark" id="menu-toggle">Select Contacts</button>
 
 
-        <div class="container-fluid" id="UpperDiv" style="color:rgb(53, 5, 85);font-size: 18px;">
+        <div class="container-fluid bg-info text-lg-right" id="UpperDiv">
           <img src="" id="clientPhoto" alt=""> <span style="font-weight: bolder;" id="clientName"></span> <span
             id="clientEmail"></span>
-
+        </div>
       </nav>
 
 
@@ -102,7 +102,7 @@
         </ol>
 
 
-        <h3>Send Message to <span style="color: rgb(38, 11, 110);" id="SendUser"></span></h3>
+        <h4>Send Message to <span style="color: rgb(38, 11, 110);" id="SendUser"></span></h4>
         <ol id="list2">
 
         </ol>
@@ -114,9 +114,22 @@
 
 
 
+      
+
+        <script>
+          var input = document.getElementById("comments");
+          input.addEventListener("keyup", function(event) {
+            if (event.keyCode === 13) {
+             event.preventDefault();
+             document.getElementById("send").click();
+            }
+          });
+          </script>        
+
+
         <br>
         <br>
-        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="send()">Send Message</button>
+        <button id="send" type="btn" class="btn btn-primary btn-lg btn-block" onclick="send()">Send Message</button>
 
 
       </div>
@@ -156,14 +169,22 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeIt()">Close</button>
-          <button type="button" class="btn btn-primary" onclick="addUser()">Add to Contacts</button>
+          <button type="button" id="add" class="btn btn-primary" onclick="addUser()">Add to Contacts</button>
         </div>
       </div>
     </div>
   </div>
 
 
-
+  <script>
+    var input = document.getElementById("addUser");
+    input.addEventListener("keyup", function(event) {
+      if (event.keyCode === 13) {
+       event.preventDefault();
+       document.getElementById("add").click();
+      }
+    });
+    </script>  
 
 
 
