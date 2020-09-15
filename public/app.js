@@ -1,3 +1,4 @@
+alert("Important! You have to add contacts manually at the right sidebar.Then click on one to start chat dont worry about @ and . They are removed by me and you have to add correct gmail in order to send message to that one.Thanks")
 var UserEmail;
 var UserDisplayName;
 var UserPhotoURL;
