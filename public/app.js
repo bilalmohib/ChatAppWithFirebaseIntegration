@@ -1,4 +1,4 @@
-alert("Important! You have to add contacts manually at the right sidebar.Then click on one to start chat dont worry about @ and . They are removed by me and you have to add correct gmail in order to send message to that one.Thanks")
+alert("Important! You have to add contacts manually at the right sidebar.Then click on one to start chat dont worry about @ and . They are removed by me and you have to add correct gmail in order to send message to that one.Thanks");
 var UserEmail;
 var UserDisplayName;
 var UserPhotoURL;
@@ -169,7 +169,7 @@ let startShow = (user) => {
 
             // once() method
             //For received comments
-            firebase.database().ref(`Comment/${res12}/${res}`).once('value', (data) => {
+            firebase.database().ref(`Comment/${res12}/${res}`).on('value', (data) => {
                 var UserComments = data.val()
                 var Keys = Object.keys(UserComments);
                 //console.log(Keys);
@@ -284,7 +284,7 @@ let startShow = (user) => {
 
             //For sent comments 
             // once() method
-            firebase.database().ref(`Comment/${res}/${res12}`).once('value', (data) => {
+            firebase.database().ref(`Comment/${res}/${res12}`).on('value', (data) => {
                 var UserComments = data.val()
                 var Keys = Object.keys(UserComments);
                 //  console.log(Keys);
@@ -701,7 +701,6 @@ let login = () => {
 
 window.onload = login;
 
-
 let logout = () => {
     // Sign out from firebase.
 firebase.auth().signOut().then(function() {
@@ -711,6 +710,7 @@ firebase.auth().signOut().then(function() {
   // Error occurred.
 });
 }
+
 
 
 let send = () => {
@@ -868,3 +868,4 @@ let closeIt = () => {
 
 
 ////////////////////////////////////////////////////////////////////////////////////
+
