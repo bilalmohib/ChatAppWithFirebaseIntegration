@@ -678,7 +678,7 @@ let deleteUser=(e)=>{
 
 
 
-let login = () => {
+async function login() {
 
     let newLoginHappened = (user) => {
 
